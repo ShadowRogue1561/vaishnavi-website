@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why I Like You 💖</title>
+
+    <!-- Handwriting font for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+      :root{
+        --accent: #ff4d6d;
+      }
+
+      /* Animated gradient background */
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+        background-size: 400% 400%;
+        animation: gradientBG 12s ease infinite;
+        font-family: "Poppins", sans-serif;
+        overflow-y: auto;
+      }
+      @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      /* Container (card) */
+      .container {
+        max-width: 760px;
+        width: 92%;
+        margin: 36px auto;
+        text-align: center;
+        padding: 26px;
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 20px;
+        box-shadow: 0 12px 30px rgba(10, 10, 20, 0.12);
+        position: relative;
+        overflow: visible;
+        opacity: 0;
+        transform: translateY(18px);
+        animation: fadeInUp 800ms ease forwards;
+      }
+      @keyframes fadeInUp {
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      h1 {
+        font-family: 'Great Vibes', cursive;
+        font-size: 2.6rem;
+        margin: 6px 0 12px;
+        color: var(--accent);
+      }
+
+      .btn {
+        border: none;
+        background: rgba(255,77,109,0.12);
+        color: var(--accent);
+        padding: 8px 12px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-weight: 600;
+        backdrop-filter: blur(4px);
+      }
+      .btn:active { transform: translateY(1px); }
+
+      p {
+        font-size: 1.15rem;
+        color: #222;
+        line-height: 1.7;
+        text-align: left;
+        white-space: pre-wrap;
+        margin: 6px 0 14px;
+      }
+
+      /* highlight for name */
+      .highlight {
+        color: var(--accent);
+        font-weight: 700;
+        text-shadow: 0 2px 8px rgba(255,77,109,0.08);
+      }
+
+      /* surprise line */
+      .surprise {
+        font-family: 'Great Vibes', cursive;
+        font-size: 1.9rem;
+        color: #e84393;
+        margin-top: 18px;
+        opacity: 0;
+        transform: translateY(6px);
+        transition: all 700ms cubic-bezier(.2,.9,.3,1);
+      }
+      .surprise.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      footer {
+  margin: 18px 0 36px;
+  font-size: 1rem;
+  color: var(--accent);
+  text-align: center;
+  position: relative; /* for burst animation */
+}
+
+footer .surprise {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  color: #e84393;
+  margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+  transition: all 700ms cubic-bezier(.2,.9,.3,1);
+  line-height: 1.2;
+}
+footer .surprise.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+
+      /* Floating emoji particles */
+      .particle {
+        position: absolute;
+        pointer-events: none;
+        animation: floatUp 6s linear infinite;
+        will-change: transform, opacity;
+      }
+      @keyframes floatUp {
+        from { transform: translateY(100vh) scale(1); opacity: 1; }
+        to { transform: translateY(-15vh) scale(1.4); opacity: 0; }
+      }
+
+      /* Responsive text sizes */
+      @media (max-width:480px){
+        h1 { font-size: 2.2rem; }
+        p { font-size: 1rem; }
+        .container { padding: 18px; margin: 20px 12px; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container" role="main" aria-live="polite">
+
+      <h1>Why I Like You ❤️</h1>
+      <p id="message"></p>
+
+      <!-- surprise line that appears after typing -->
+      
+    </div>
+
+    <footer>
+      <div id="surprise" class="surprise">💖 The answer is simple: Because it’s YOU, Vaani. 💖</div>
+    </footer>
+
+    <script>
+      /****** EDIT THIS: paste your message here ******/
+      const rawText = `Vaishnavi, there are countless reasons why I like you...
+
+You actually listen to me and pay attention that’s rare, and it really matters. Even when you don’t say it straight, I can feel you like me a little… and that mystery just makes me like you even more 😌
+
+Also… your Tamil with that Malayali touch, those little sounds you make njyn njyn njyn…🤌🏼, and those silent mind voices of yours kadavuley…🤍 — I could just listen to you forever 😄
+
+I don’t know why, but I could just listen to you forever Most times, I don’t even care what we talk about I just want the chat to go on. Makes me feel like saying, “don’t end it, Vaishu… please.”🫣🩵 
+
+I love how you actually listen to what I say. Even if you don’t always follow it, you still respect my thoughts — and that makes me value you so much. You give me space to say whatever’s on my mind without judgment, and that kind of comfort… I’ve never felt it with anyone else. With you, I can just be me.😊
+
+You’re not like other girls at all. Honestly, you’re one of a kind. The way you care, the way you make me feel important without even trying, and the comfort you give… it’s something I’ll never take for granted. I love how you’re sensitive, a little stubborn, a bit mysterious, and even with all those little complications, you’re still the most pleasant and amazing person I’ve met. Honestly, even the messy parts are exactly what makes me like you.🥰
+
+And your voice god🤌🏼🤍!! When you sang for me, it didn’t feel like just a song. It felt like something that could calm my heart. That sweet tone still plays in my head.🎊
+
+You make me smile unexpectedly, make me curious to know more about you, and make me feel lucky that I even get to talk to you. That’s why I like you because you’re a gem 💎, someone I don’t ever want to lose.🫂❤️
+
+So yeah… maybe I can’t sum it up in one line, but the truth is I like you because you’re you. And trust me, that’s more than enough reason.`;
+      /**************************************************/
+
+      const messageEl = document.getElementById('message');
+      const surpriseEl = document.getElementById('surprise');
+      const skipBtn = document.getElementById('skipBtn');
+      const bgMusic = document.getElementById('bgMusic');
+
+      // Names to highlight (adds personalization)
+      const nameRegex = new RegExp('\\b(Vaishnavi)\\b', 'gi');
+
+      // Convert raw text to HTML-escaped, then highlight names
+      function highlightNames(text) {
+        // Escape &, <, >
+        const esc = text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+        // Replace name matches with span
+        return esc.replace(nameRegex, (match) => `<span class="highlight">${match}</span>`);
+      }
+
+      // Processed HTML version (used when we want to show the full message instantly)
+      const processedHTML = highlightNames(rawText);
+
+      // Typing effect
+      let i = 0;
+      let typing = true;
+      let timer = null;
+
+      function typeWriter() {
+        // We type into the element as plain text (not HTML) to keep things simple,
+        // then after typing finishes we replace with processedHTML (with highlights).
+        if (i < rawText.length) {
+          // append one character (preserve HTML escaping)
+          const nextChar = rawText.charAt(i);
+          // simple escaping for < & >
+          const safeChar = nextChar === '<' ? '&lt;' : (nextChar === '>' ? '&gt;' : (nextChar === '&' ? '&amp;' : nextChar));
+          messageEl.innerHTML += safeChar;
+          i++;
+          // slightly faster when characters are space or newline
+          const delay = nextChar === ' ' ? 8 : (nextChar === '\n' ? 120 : 35);
+          timer = setTimeout(typeWriter, delay);
+        } else {
+          typing = false;
+          // replace with highlighted HTML (so names become highlighted)
+          messageEl.innerHTML = processedHTML.replaceAll('\n', '<br>');
+          showSurprise();
+        }
+      }
+
+      // Start typing on load
+      window.addEventListener('load', () => {
+        setTimeout(typeWriter, 350); // small delay so container finishes animation
+      });
+
+      // Surprise line reveal
+      function showSurprise() {
+        // small delay to let the user breathe
+        setTimeout(() => {
+          surpriseEl.classList.add('show');
+          // also gently scroll to show the surprise if it's below
+          const rect = surpriseEl.getBoundingClientRect();
+          if (rect.top > window.innerHeight * 0.75) {
+            surpriseEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 650);
+      }
+
+      /***** Floating emoji particles (playful) *****/
+      const emojis = ["❤️","🌸","✨","🌹"];
+      function createParticle() {
+        const el = document.createElement('div');
+        el.className = 'particle';
+        el.style.left = Math.random() * 100 + 'vw';
+        const size = Math.random() * 22 + 12;
+        el.style.fontSize = size + 'px';
+        el.style.top = Math.random() * 90 + 10 + 'vh'; // start at varied heights
+        el.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+        document.body.appendChild(el);
+        // remove after animation
+        setTimeout(() => el.remove(), 6500);
+      }
+      // start particles but not too many
+      setInterval(createParticle, 900);
+
+      // Accessibility: allow space on Skip to activate
+      skipBtn.addEventListener('keyup', (e) => { if (e.code === 'Space') skipBtn.click(); });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vaishnavi's Star ✨</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      height: 100vh;
+      background: black;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Night sky background */
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    /* Glowing star */
+    .star {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 40%, #ffcc70 60%, transparent 80%);
+      box-shadow: 0 0 40px #fff, 0 0 80px #ffcc70, 0 0 120px #ffcc70;
+      animation: pulse 2s infinite;
+      z-index: 2;
+      cursor: grab;
+    }
+
+    @keyframes pulse {
+      0% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.2); }
+      100% { transform: translate(-50%, -50%) scale(1); }
+    }
+
+    /* Text */
+    .title {
+      position: relative;
+      z-index: 3;
+      font-size: 2rem;
+      color: white;
+      text-shadow: 0 0 10px #ffcc70, 0 0 20px #fff;
+      margin-bottom: 20px;
+      animation: fadeIn 3s ease forwards;
+    }
+
+    .subtitle {
+      position: relative;
+      z-index: 3;
+      font-size: 1.5rem;
+      color: #ffcc70;
+      margin-top: 10px;
+      animation: fadeIn 5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Button */
+    .btn {
+      position: relative;
+      z-index: 3;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #ffcc70, #ff545a);
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 20px #ff545a;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px #ffcc70;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="sky"></canvas>
+
+  <div class="title">My Love, I caught a star just for you ✨</div>
+  <div class="subtitle">This star belongs to Vaishnavi 💖</div>
+
+  <div class="star" id="star"></div>
+
+  <button class="btn" onclick="openCamera()">Hold Your Star</button>
+
+  <script>
+    // Night sky with twinkling stars
+    const canvas = document.getElementById('sky');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const stars = [];
+    for (let i = 0; i < 200; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.2,
+        alpha: Math.random(),
+        speed: Math.random() * 0.02
+      });
+    }
+
+    function animateSky() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(star => {
+        star.alpha += star.speed;
+        if (star.alpha <= 0 || star.alpha >= 1) star.speed = -star.speed;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(animateSky);
+    }
+    animateSky();
+
+    // Draggable glowing star
+    const starEl = document.getElementById('star');
+    let isDragging = false;
+
+    starEl.addEventListener('mousedown', () => { isDragging = true; });
+    starEl.addEventListener('mouseup', () => { isDragging = false; });
+    starEl.addEventListener('mousemove', (e) => {
+      if (isDragging) {
+        starEl.style.left = e.pageX + 'px';
+        starEl.style.top = e.pageY + 'px';
+        starEl.style.transform = 'translate(-50%, -50%)';
+      }
+    });
+
+    // Open camera
+    function openCamera() {
+      alert("Here, Vaishnavi can hold her star 💖 (Camera access needs backend setup).");
+    }
+  </script>
+</body>
+</html>
